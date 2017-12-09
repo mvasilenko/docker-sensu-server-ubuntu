@@ -1,6 +1,6 @@
 # docker-sensu-server
 
-Debian jessie and sensu stuff.
+Ubuntu Xenial and sensu stuff.
 
 It runs redis, rabbitmq-server, uchiwa, sensu-api, sensu-server processes.
 
