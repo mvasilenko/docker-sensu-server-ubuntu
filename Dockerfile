@@ -10,12 +10,13 @@
 FROM ubuntu:xenial
 
 # Environment configuration
-ENV DEBIAN_FRONTEND="noninteractive"
+ARG DEBIAN_FRONTEND="noninteractive"
 
 # System preparation
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y sudo git wget ruby ruby-dev openssl supervisor build-essential redis-server \
+    apt-transport-https apt-utils \
     && mkdir -p /var/log/supervisor
 
 # RabbitMQ
@@ -32,8 +33,8 @@ ADD ./sensu/rabbitmq.config /etc/rabbitmq/
 RUN rabbitmq-plugins enable rabbitmq_management
 
 # Sensu server
-RUN wget -q http://repositories.sensuapp.org/apt/pubkey.gpg -O- | sudo apt-key add - \
-    && echo "deb     http://repositories.sensuapp.org/apt sensu main" | sudo tee /etc/apt/sources.list.d/sensu.list \
+RUN wget -q https://sensu.global.ssl.fastly.net/apt/pubkey.gpg -O- | sudo apt-key add - \
+    && echo "deb https://sensu.global.ssl.fastly.net/apt xenial main" | sudo tee /etc/apt/sources.list.d/sensu.list \
     && apt-get update \
     && apt-get install -y sensu
 ADD ./sensu/config.json /etc/sensu/
