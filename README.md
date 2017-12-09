@@ -11,14 +11,14 @@ Thanks to [Original project hiroakis/docker-sensu-server](https://github.com/hir
 Install from docker index
 
 ```
-docker pull amontaigu/sensu-server
+docker pull mvasilenko/docker-sensu-server-ubuntu
 ```
 
 ## Run
 
 ```
-docker run -d -p 3000:3000 -p 4567:4567 -p 5671:5671 -p 15672:15672 amontaigu/sensu-server
-```
+docker run -d -p 3000:3000 -p 4567:4567 -p 5671:5671 -p 15672:15672 mvasilenko/docker-sensu-server-ubuntu
+
 
 ## How to access via browser and sensu-client
 
