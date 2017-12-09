@@ -7,10 +7,7 @@
 # ================================================================================================================
 
 # Base image
-FROM debian:jessie
-
-# Maintainer
-MAINTAINER Alban Montaigu <alban.montaigu@gmail.com>
+FROM ubuntu:xenial
 
 # Environment configuration
 ENV DEBIAN_FRONTEND="noninteractive"
